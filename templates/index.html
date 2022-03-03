@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML APP</title>
+<style>
+  .login{
+      width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      margin: auto;
+      padding: 4px;
+      border: 5px solid #850e08;
+      display: flex;
+      justify-content: center;
+   }
+
+   #aaa {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+   .form {
+     width: 300px;
+   }
+
+   h3{
+    text-align: center;
+    background-color: #850e08;
+    padding: 14px;
+    border-radius: 10px
+    font-size: 27px;
+    color: #e6dadb;
+   }
+</style>
+  
+</head>
+
+<body>
+
+ <div class="login" id = "aaa">
+   <div>
+     <div>
+       <h3>Check your diabetes status<h3>
+
+     <form action="{{ url_for('predict')}}"method="post"> 
+    	 <input class = "form" type="text" name="num_preg" placeholder="Number of pregnancies(0 is valid)" required="required"/> <br> <br>
+       <input class = "form" type="text" name="glucose_conc" placeholder="Plasma glucose conc in a 2 hrs oral glucose tolerance test" required="required"/> <br> <br>
+		   <input class = "form" type="text" name="diastolic_bp" placeholder="Diastolic blood pressure (mm Hg)" required="required"/> <br> <br>
+		   <input class = "form" type="text" name="thickness" placeholder="Triceps skin fold thickness (mm)" required="required"/> <br> <br>
+       <input class = "form" type="text" name="insulin" placeholder="2 Hours serum insulin (mu U/ml)" required="required"/> <br> <br>
+       <input class = "form" type="text" name="bmi" placeholder="Body mass index (weight in kg/(height in m)^2)" required="required"/> <br> <br>
+       <input class = "form" type="text" name="diab_pred" placeholder="Diabetes pedigree function" required="required"/> <br> <br>
+       <input class = "form" type="text" name="age" placeholder="Age(years)" required="required"/> <br> <br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        
+     </form>
+
+   <br>
+   <br>    
+         <div>
+   {{ prediction_text}}
+        <div>
+   </div>
+  </div>
+ </div>
+
+
+</body>
+</html>
